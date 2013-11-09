@@ -1,10 +1,18 @@
 require 'socket'
+require "awesome_print"
+
+host = "localhost"
+port = 8001
 
 begin
-  socket = TCPSocket.open("localhost", 8001)
+  socket = TCPSocket.open(host, port)
 rescue
-  puts "TCPSocket.open failed"
+  puts "TCPSocket.open Failed"
 else
-  socket.write("Hello")
+  # request
+  socket.puts("hello")
+
+  # get response
+  ap socket.gets
   socket.close
 end
