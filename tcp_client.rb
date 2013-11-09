@@ -10,10 +10,7 @@ begin
 rescue
   puts "TCPSocket.open Failed"
 else
-  # request
   socket.puts(request)
-
-  # get response
   ap socket.gets
   socket.close
 end
